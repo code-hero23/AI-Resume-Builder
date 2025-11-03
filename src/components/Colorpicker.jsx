@@ -59,7 +59,7 @@ const Colorpicker = ({ selectedColor, onChange }) => {
             <div
               key={color.name}
               className="relative cursor-pointer group flex flex-col items-center" // Added items-center
-              onClick={() => onChange(color.value)}
+              onClick={() => {onChange(color.value); setIsOpen(false);}}
             >
               {/* Color Swatch Circle - Made relative and Check is now INSIDE */}
               <div

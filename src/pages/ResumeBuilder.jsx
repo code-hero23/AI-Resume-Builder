@@ -5,6 +5,7 @@ import { ArrowLeftIcon, Briefcase, ChevronLeft, ChevronRight, FileText, FolderIc
 import PersonalInfoForm from '../components/PersonalInfoForm';
 import ResumePreview from '../components/ResumePreview';
 import TemplateSelector from '../components/TemplateSelector';
+import Colorpicker from '../components/Colorpicker';
 const ResumeBuilder = () => {
 
   const { resumeId} = useParams()
@@ -63,9 +64,10 @@ const ResumeBuilder = () => {
               <hr className='absolute top-0 left-0 right-0 border-2 border-gray-200'/>
               <hr className=' absolute top-0 left-0 h-1 bg-gradient-to-r from-orange-500 to-orange-600 border-none transition-all duration-2000' style={{width:`${activeSectionIndex * (100 / sections.length -1)}%`}} />
             {/* section navigation */}
-              <div className='flex justify-between items-center mb-6 border-b border-gray-300 py1'>
-              <div> 
+              <div className=' flex items-center justify-between mb-6 border-b'>
+              <div className='flex items-center gap-2'> 
                 <TemplateSelector selectTemplate={resumeData.template} onChange={(template) => setResumeData(prev => ({ ...prev, template}))} />
+                  <Colorpicker selectedColor={resumeData.accent_color} onChange={(color) => setResumeData(prev => ({ ...prev, accent_color: color }))} />
               </div>
               <div className='flex items-center'>
                 {activeSectionIndex !== 0 && (
